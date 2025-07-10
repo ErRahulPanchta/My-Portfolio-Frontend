@@ -5,11 +5,13 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const controllerRef = useRef(null); // <-- Ref to persist controller
+
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitSuccessful },
+    formState: { errors },
   } = useForm({
     mode: 'onBlur',
     defaultValues: {
@@ -19,14 +21,26 @@ const Contact = () => {
     }
   });
 
+  useEffect(() => {
+    return () => {
+      // Abort any in-progress fetch if component unmounts
+      if (controllerRef.current) {
+        controllerRef.current.abort();
+      }
+    };
+  }, []);
+
   const onSubmit = async (data) => {
     setIsSubmitting(true);
 
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 8000);
+    controllerRef.current = controller;
+
+    const timeoutId = setTimeout(() => {
+      controller.abort();
+    }, 8000);
 
     try {
-
       const response = await fetch(`${import.meta.env.VITE_API_URL}/api/user-message`, {
         method: 'POST',
         headers: {
@@ -37,6 +51,7 @@ const Contact = () => {
       });
 
       clearTimeout(timeoutId);
+      controllerRef.current = null;
 
       const result = await response.json();
 
