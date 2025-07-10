@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const controllerRef = useRef(null); // <-- Ref to persist controller
+  const controllerRef = useRef(null);
 
   const {
     register,
@@ -23,15 +23,19 @@ const Contact = () => {
 
   useEffect(() => {
     return () => {
-      // Abort any in-progress fetch if component unmounts
       if (controllerRef.current) {
-        controllerRef.current.abort();
+        controllerRef.current.abort(); // cleanup on unmount
       }
     };
   }, []);
 
   const onSubmit = async (data) => {
     setIsSubmitting(true);
+
+    // Abort any previous request
+    if (controllerRef.current) {
+      controllerRef.current.abort();
+    }
 
     const controller = new AbortController();
     controllerRef.current = controller;
@@ -65,7 +69,7 @@ const Contact = () => {
       console.error('Submission error:', error);
 
       if (error.name === 'AbortError') {
-        toast.error('Request timed out. Please try again.');
+        toast.error('Request timed out or was aborted.');
       } else if (error.message.includes('Failed to fetch')) {
         toast.error('Network error or CORS issue.');
       } else {
@@ -75,7 +79,6 @@ const Contact = () => {
       setIsSubmitting(false);
     }
   };
-
 
   return (
     <section className="p-6 md:p-10 bg-gradient-to-b from-blue-50 to-white dark:from-gray-800 dark:to-gray-900">
@@ -89,6 +92,7 @@ const Contact = () => {
           className="space-y-6"
           aria-labelledby="contact-form-heading"
         >
+          {/* Name */}
           <div>
             <label htmlFor="name" className="sr-only">Name</label>
             <input
@@ -117,6 +121,7 @@ const Contact = () => {
             )}
           </div>
 
+          {/* Email */}
           <div>
             <label htmlFor="email" className="sr-only">Email</label>
             <input
@@ -141,6 +146,7 @@ const Contact = () => {
             )}
           </div>
 
+          {/* Message */}
           <div>
             <label htmlFor="message" className="sr-only">Message</label>
             <textarea
@@ -169,6 +175,7 @@ const Contact = () => {
             )}
           </div>
 
+          {/* Submit Button */}
           <button
             type="submit"
             disabled={isSubmitting}
