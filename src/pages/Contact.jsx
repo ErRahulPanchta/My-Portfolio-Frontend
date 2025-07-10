@@ -23,7 +23,7 @@ const Contact = () => {
     setIsSubmitting(true);
 
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 60000);
+    const timeoutId = setTimeout(() => controller.abort(), 8000);
 
     try {
 
