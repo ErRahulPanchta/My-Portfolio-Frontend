@@ -21,36 +21,34 @@ const Contact = () => {
 
   const onSubmit = async (data) => {
     setIsSubmitting(true);
-  
-    // Setup manual timeout using AbortController
+
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 8000); // 8 seconds
-  
+    const timeoutId = setTimeout(() => controller.abort(), 60000);
+
     try {
-      console.log('Submitting:', data); // Debug
-  
-const response = await fetch(`${import.meta.env.VITE_API_URL}/api/user-message`, {
+
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/user-message`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
-        signal: controller.signal, // pass signal for aborting
+        signal: controller.signal,
       });
-  
-      clearTimeout(timeoutId); // clear timeout on success
-  
+
+      clearTimeout(timeoutId);
+
       const result = await response.json();
-  
+
       if (!response.ok) {
         throw new Error(result.error || 'Submission failed');
       }
-  
+
       toast.success('Message sent successfully!');
       reset();
     } catch (error) {
       console.error('Submission error:', error);
-  
+
       if (error.name === 'AbortError') {
         toast.error('Request timed out. Please try again.');
       } else if (error.message.includes('Failed to fetch')) {
@@ -62,7 +60,7 @@ const response = await fetch(`${import.meta.env.VITE_API_URL}/api/user-message`,
       setIsSubmitting(false);
     }
   };
-  
+
 
   return (
     <section className="p-6 md:p-10 bg-gradient-to-b from-blue-50 to-white dark:from-gray-800 dark:to-gray-900">
@@ -71,7 +69,7 @@ const response = await fetch(`${import.meta.env.VITE_API_URL}/api/user-message`,
           Contact Me
         </h2>
 
-        <form 
+        <form
           onSubmit={handleSubmit(onSubmit)}
           className="space-y-6"
           aria-labelledby="contact-form-heading"
@@ -81,7 +79,7 @@ const response = await fetch(`${import.meta.env.VITE_API_URL}/api/user-message`,
             <input
               id="name"
               type="text"
-              {...register('name', { 
+              {...register('name', {
                 required: 'Name is required',
                 minLength: {
                   value: 2,
@@ -109,7 +107,7 @@ const response = await fetch(`${import.meta.env.VITE_API_URL}/api/user-message`,
             <input
               id="email"
               type="email"
-              {...register('email', { 
+              {...register('email', {
                 required: 'Email is required',
                 pattern: {
                   value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
@@ -133,7 +131,7 @@ const response = await fetch(`${import.meta.env.VITE_API_URL}/api/user-message`,
             <textarea
               id="message"
               rows="5"
-              {...register('message', { 
+              {...register('message', {
                 required: 'Message is required',
                 minLength: {
                   value: 10,
@@ -171,7 +169,7 @@ const response = await fetch(`${import.meta.env.VITE_API_URL}/api/user-message`,
           </button>
         </form>
 
-        <ToastContainer 
+        <ToastContainer
           position="top-center"
           autoClose={5000}
           hideProgressBar={false}
