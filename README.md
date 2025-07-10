@@ -1,12 +1,47 @@
-# React + Vite
+# 🌐 Rahul Panchta - Full Stack MERN Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my personal portfolio website built using **React**, **Tailwind CSS**, and powered by a **MongoDB + Express** backend. This site showcases my skills, projects, and allows visitors to contact me through a dynamic form.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Live Demo
 
-## Expanding the ESLint configuration
+🌍 [View Live Website](https://your-live-portfolio-link.com)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 📸 Preview
+
+![Portfolio Preview](public/preview.png)
+
+---
+
+## ✨ Features
+
+- 💼 Project showcase with GitHub links
+- 📜 Resume download
+- 📧 Contact form with toast notification + MongoDB storage
+- 🔥 Responsive design (mobile-first)
+- 🌐 SEO optimized with Open Graph meta tags
+- ⚙️ Full Stack using MERN
+
+---
+
+## 🛠 Tech Stack
+
+### Frontend
+- React
+- Tailwind CSS
+- React Hook Form + Toastify
+- React Router v6
+
+### Backend
+- Node.js
+- Express
+- MongoDB
+- CORS / dotenv
+
+---
+
+## 📁 Folder Structure
+my-portfolio/ ├── backend/ │ ├── server.js │ ├── public/ │ ├── favicon.ico │ └── preview.png ├── src/ │ ├── pages/ │ ├── components/ │ ├── App.jsx │ └── index.css / main.jsx 
