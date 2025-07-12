@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://my-portfolio-frontend-nu-three.vercel.app/sitemap.xml
