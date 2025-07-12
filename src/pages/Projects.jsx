@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
@@ -7,8 +8,7 @@ const Projects = () => {
     {
       name: "Book Review System",
       description: "Developed a full-stack book review web app with authentication, image uploads, and role-based access ",
-      tech: ["React.js", "Redux", "Node.js", "Express.js", "MongoDB", "JWT",
-        "Tailwind CSS", "Multer", "Render", "Vercel"],
+      tech: ["React.js", "Redux", "Node.js", "Express.js", "MongoDB", "JWT", "Tailwind CSS", "Multer", "Render", "Vercel"],
       image: "/images/bookreview.png",
       github: "https://github.com/ErRahulPanchta/BookReview-Frontend",
       demo: "https://book-review-f.vercel.app/",
@@ -25,9 +25,8 @@ const Projects = () => {
     },
     {
       name: "iTaskTeam Collabration System",
-      description: "Developed a backend team collabration review web app with single user role, board, and edit, delete task  ",
-      tech: ["React.js", "Node.js", "Express.js", "MongoDB",
-        "Tailwind CSS", "Multer", "Render", "Vercel"],
+      description: "Developed a backend team collaboration review web app with single user role, board, and edit, delete task",
+      tech: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "Multer", "Render", "Vercel"],
       image: "/images/teamcollab.png",
       github: "https://github.com/ErRahulPanchta/Board-Team-Collaboration-B",
       demo: "https://client-nu-eight-51.vercel.app/",
@@ -45,87 +44,98 @@ const Projects = () => {
       description: "UI clone with audio playback functionality",
       tech: ["HTML5", "CSS3", "JavaScript"],
       image: "/images/spotify.png",
-      github: "https://github.com/ErRahulPanchta/Spotify-Clone"    }
+      github: "https://github.com/ErRahulPanchta/Spotify-Clone"
+    }
   ];
 
   return (
-    <section className="py-16 px-6 bg-gradient-to-b from-blue-50 to-white dark:from-gray-800 dark:to-gray-900" id="projects">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-12 text-blue-800 dark:text-blue-400">
-          My Projects
-        </h2>
+    <>
+      <Helmet>
+        <title>Projects | Rahul Panchta | MERN Stack Developer</title>
+        <meta
+          name="description"
+          content="Explore full-stack React.js, Node.js, and MongoDB projects by Rahul Panchta, including book review systems, password managers, and team collaboration apps."
+        />
+        <link
+          rel="canonical"
+          href="https://my-portfolio-frontend-nu-three.vercel.app/projects"
+        />
+      </Helmet>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <motion.div 
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -5 }}
-              className="bg-white dark:bg-gray-700 rounded-xl shadow-lg hover:shadow-xl transition-all overflow-hidden"
-            >
-              {/* Project Image */}
-              <div className="h-48 overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.name} 
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                />
-              </div>
+      <section className="py-16 px-6 bg-gradient-to-b from-blue-50 to-white dark:from-gray-800 dark:to-gray-900" id="projects">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-12 text-blue-800 dark:text-blue-400">
+            My Projects
+          </h2>
 
-              {/* Project Content */}
-              <div className="p-6">
-                <h3 className="text-2xl font-bold mb-2 text-gray-800 dark:text-white">
-                  {project.name}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  {project.description}
-                </p>
-                
-                {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tech.map((tech, i) => (
-                    <span 
-                      key={i} 
-                      className="px-3 py-1 bg-blue-100 dark:bg-gray-600 text-blue-800 dark:text-blue-200 text-xs font-medium rounded-full"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project, index) => (
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -5 }}
+                className="bg-white dark:bg-gray-700 rounded-xl shadow-lg hover:shadow-xl transition-all overflow-hidden"
+              >
+                <div className="h-48 overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.name} 
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
                 </div>
 
-                {/* Project Links */}
-                <div className="flex flex-wrap gap-3">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-md transition-colors"
-                  >
-                    <FaGithub />
-                    Code
-                  </a>
-                  
-                  {project.demo && (
+                <div className="p-6">
+                  <h3 className="text-2xl font-bold mb-2 text-gray-800 dark:text-white">
+                    {project.name}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4">
+                    {project.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.tech.map((tech, i) => (
+                      <span 
+                        key={i} 
+                        className="px-3 py-1 bg-blue-100 dark:bg-gray-600 text-blue-800 dark:text-blue-200 text-xs font-medium rounded-full"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="flex flex-wrap gap-3">
                     <a
-                      href={project.demo}
+                      href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition-colors"
+                      className="flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-md transition-colors"
                     >
-                      <FaExternalLinkAlt />
-                      Live Demo
+                      <FaGithub />
+                      Code
                     </a>
-                  )}
+
+                    {project.demo && (
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition-colors"
+                      >
+                        <FaExternalLinkAlt />
+                        Live Demo
+                      </a>
+                    )}
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 
