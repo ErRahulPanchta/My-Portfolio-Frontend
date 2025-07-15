@@ -6,6 +6,7 @@ import { FaGithub, FaLinkedin, FaFileDownload } from 'react-icons/fa';
 import { HiMail } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
 
+
 const Home = () => {
   const socialLinks = [
     {
@@ -88,7 +89,7 @@ const Home = () => {
               View My Work
             </Link>
             <a
-              href="/resume.pdf"
+              href="/RahulsResume.pdf"
               download
               className="bg-white hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 text-blue-600 dark:text-white border border-blue-600 dark:border-gray-600 font-semibold py-3 px-6 rounded-full shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2"
             >
