@@ -16,7 +16,7 @@ const Projects = () => {
     },
     {
       name: "Speech to Text",
-      description: "Developed a full-stack speech to text web app with authentication, image uploads ",
+      description: "Developed a full-stack speech to text web app with authentication, audio upload/audio record ",
       tech: ["React.js", "Redux","Redux/Toolkit", "Node.js", "Express.js", "MongoDB", "JWT", "Tailwind CSS", "Multer", "AssemblyAI", "Render", "Vercel"],
       image: "/images/stt.png",
       github: "https://github.com/ErRahulPanchta/SpeechToText-Frontend",
