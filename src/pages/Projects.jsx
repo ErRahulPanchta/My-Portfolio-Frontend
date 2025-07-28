@@ -15,13 +15,21 @@ const Projects = () => {
       featured: true
     },
     {
+      name: "Speech to Text",
+      description: "Developed a full-stack speech to text web app with authentication, image uploads ",
+      tech: ["React.js", "Redux","Redux/Toolkit", "Node.js", "Express.js", "MongoDB", "JWT", "Tailwind CSS", "Multer", "AssemblyAI", "Render", "Vercel"],
+      image: "/images/stt.png",
+      github: "https://github.com/ErRahulPanchta/SpeechToText-Frontend",
+      demo: "https://speech-to-text-one-gamma.vercel.app/",
+      featured: true
+    },
+    {
       name: "Password Manager",
       description: "Secure credential storage with encryption and JWT authentication",
       tech: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
       image: "/images/password.png",
       github: "https://github.com/ErRahulPanchta/password-manager",
-      demo: "https://erp-password-manager.vercel.app/",
-      featured: true
+      demo: "https://erp-password-manager.vercel.app/"
     },
     {
       name: "iTaskTeam Collabration System",
