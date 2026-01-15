@@ -76,6 +76,52 @@ const Projects = () => {
       featured: true,
     },
     {
+      name: "Ride With Us",
+      description:
+        "A full-stack ride-hailing platform with rider & driver roles, live ride tracking, status-based workflows, payments, and ratings. Drivers can accept, start, and complete rides, while riders can book rides, make payments, and rate drivers.",
+      tech: [
+        "React.js",
+        "Redux Toolkit",
+        "Tailwind CSS",
+        "Node.js",
+        "Express.js",
+        "Supabase (PostgreSQL)",
+        "JWT Authentication",
+        "Role-Based Access Control",
+        "REST APIs",
+        "Polling (Live Updates)",
+        "Vercel",
+        "Render"
+      ],
+      image: "/images/rwu.png",
+      github: "https://github.com/ErRahulPanchta/Ride-with-us",
+      demo: "https://ride-with-us-sigma.vercel.app/",
+      featured: true
+    },
+    {
+      name: "ERP Clouds",
+      description:
+        "A cloud-based ERP system designed for small businesses to manage users, roles, departments, and operations. Includes authentication, role-based dashboards, modular structure, and scalable backend architecture.",
+      tech: [
+        "React.js",
+        "Redux Toolkit",
+        "Tailwind CSS",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "JWT Authentication",
+        "Role-Based Access Control",
+        "REST APIs",
+        "Render",
+        "Vercel"
+      ],
+      image: "/images/erpc.png",
+      github: "https://github.com/ErRahulPanchta/EPR-CLOUDS-client",
+      demo: "https://epr-clouds-client.vercel.app/",
+      featured: true
+    },
+
+    {
       name: "Password Manager",
       description: "Secure credential storage with encryption and JWT authentication.",
       tech: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
